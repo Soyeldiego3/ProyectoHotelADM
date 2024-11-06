@@ -25,6 +25,12 @@ body {
     color: #424769;
 }
 
+/* margen para el contenido de la pagina */
+.contenido {
+    margin-right: 25vh;
+    margin-left: 25vh;
+}
+
 /*navbar*/
 .bottom-line {
     border-bottom-color:#e09b63;
@@ -68,8 +74,6 @@ body {
 
     margin-top: 5vh;
     margin-bottom: 5vh;
-    margin-left: 10vh;
-    margin-right: 10vh;
 }
 
 .text-container {
