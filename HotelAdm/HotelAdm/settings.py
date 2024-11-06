@@ -77,14 +77,14 @@ WSGI_APPLICATION = 'HotelAdm.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'mysql.connector.django',
-        'NAME': 'hoteladm',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'db',  # Puede ser 'db' si es con Docker Compose o ip local si esta configurado
-        'PORT': '3306',
-    }
+    #'default': {
+    #    'ENGINE': 'mysql.connector.django',
+    #    'NAME': 'hoteladm',
+    #    'USER': 'root',
+    #   'PASSWORD': '',
+    #    'HOST': 'db',  # Puede ser 'db' si es con Docker Compose o ip local si esta configurado
+    #    'PORT': '3306',
+    #}
 }
 
 
@@ -123,6 +123,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

@@ -1,0 +1,99 @@
+body {
+    overflow-y:visible; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    background-color: #2d3250;
+}
+
+/* Colores personalizados */
+.bg-dark-blue {
+    background-color: #2d3250;
+}
+
+.bg-light-blue {
+    background-color: #424769;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.text-light-blue {
+    color: #b6b9cd;
+}
+
+.text-blue {
+    color: #424769;
+}
+
+/*navbar*/
+.bottom-line {
+    border-bottom-color:#e09b63;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+}
+
+.btn-orange {
+    background-color: #f9b37a;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-explore {
+    background-color:#424769;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-orange:hover {
+    background-color: #e09b63; /* Un tono más oscuro para el efecto hover */
+}
+
+.btn-explore:hover {
+    background-color:#b6b9cd;
+}
+
+/* Estilos adicionales */
+.interactive-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2d3250;
+    color: #ffffff;
+
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    margin-left: 10vh;
+    margin-right: 10vh;
+}
+
+.text-container {
+    width: 45%;
+    padding: 20px;
+}
+
+.text-container h2 {
+    font-size: 2em;
+    color: #ffffff;
+}
+
+.text-container p {
+    font-size: 1.1em;
+    color: #b6b9cd;
+    margin-top: 10px;
+}
+
+.carousel-container {
+    width: 45%;
+}
+
+.carousel-container .carousel-item img {
+    height: 350px; /* Altura fija */
+    border-radius: 25px;
+    object-fit: cover; /* Ajusta la imagen al tamaño del contenedor sin distorsión */
+}
