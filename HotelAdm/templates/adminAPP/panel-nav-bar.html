@@ -1,0 +1,26 @@
+{% load static %}
+
+{% block content %}
+<!-- Navbar de la pagina -->
+<nav class="navbar navbar-expand-lg bottom-line navbar-bg">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'usuarioAPP/imagenes/logo.png' %}" alt="Logo" width="150" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link text-light-blue" href="#">Pagina principal</a></li>
+                <!-- Contenedor para botón y nombre de usuario -->
+                <div class="user-login d-flex align-items-center">
+                    <li class="nav-item"><a class="nav-link btn btn-orange-login" href="#"><i class="fa-solid fa-user"></i></a></li>
+                    <li class="nav-item nav-link text-light-blue">Usuario</li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% endblock %}

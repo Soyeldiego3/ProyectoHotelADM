@@ -25,12 +25,13 @@ body {
     color: #424769;
 }
 
-/* ajuste de la pagina */
+/* ajuste de la pagina
 .body-content {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
+*/
 
 /* margen para el contenido de la página, ajustable en pantallas grandes */
 .contenido {

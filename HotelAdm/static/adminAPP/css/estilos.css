@@ -1,0 +1,71 @@
+/* Estilos de la barra de búsqueda */
+.search-bar .input-group {
+    max-width: 100%;
+}
+
+.search-icon, .clear-btn {
+    background-color: transparent;
+    border: none;
+    color: #555;
+    cursor: pointer;
+}
+
+.search-input {
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.input-group-text {
+    border-radius: 5px;
+    border-right: none;
+}
+
+.search-input::placeholder {
+    color: #888;
+}
+
+/* Botón personalizado con tamaño ajustado */
+.btn-custom-panel {
+    background-color: #f9b37a;
+    color: #ffffff;
+    border: none;
+    font-size: 1.1rem; /* Aumenta el tamaño del texto */
+    padding: 10px 20px; /* Aumenta el padding para hacer el botón más grande */
+    width: 120px; /* Ajusta el ancho del botón */
+}
+
+.btn-custom-panel:hover {
+    background-color: #424769;
+    color: #e0e0e0;
+}
+
+/* Ajustes de la barra extra para distribuir mejor los botones */
+.extra-bar .w-25 {
+    display: flex;
+    justify-content: space-between; /* Distribuye mejor los botones */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .extra-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .btn-custom-panel {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-custom-panel {
+        font-size: 0.9rem;
+        padding: 6px 8px;
+    }
+}
