@@ -25,6 +25,14 @@ body {
     color: #424769;
 }
 
+/* ajuste de la pagina
+.body-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+*/
+
 /* margen para el contenido de la página, ajustable en pantallas grandes */
 .contenido {
     margin-right: 5vw;
@@ -38,7 +46,70 @@ body {
     }
 }
 
+/* footer */
+.footer {
+    background-color:#424769;
+    color: #fff;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 10px;
+}
+
+.footer-logo {
+    max-width: 120px;
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    color: #fff;
+    margin-right: 10px;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ff9900; /* Cambia a un color de hover */
+}
+
+.about h4, .help h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.about p, .help p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.social-icons a {
+    color: #fff;
+    margin-right: 10px;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ff9900; /* Cambia el color de hover si lo deseas */
+}
+
+
 /* Navbar */
+
+.navbar-bg {
+    background-color: #424769;
+}
 .bottom-line {
     border-bottom-color: #e09b63;
     border-bottom-style: solid;
@@ -54,6 +125,26 @@ body {
     transition: background-color 0.3s ease;
 }
 
+.user-login {
+    display: flex;
+    align-items: center;
+}
+
+.btn-orange-login {
+    background-color: #f9b37a;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+
 .btn-explore {
     background-color: #424769;
     color: #ffffff;
@@ -66,12 +157,15 @@ body {
 .btn-orange:hover {
     background-color: #e09b63; /* Un tono más oscuro para el efecto hover */
 }
+.btn-orange-login:hover {
+    background-color: #e09b63; /* Un tono más oscuro para el efecto hover */
+}
 
 .btn-explore:hover {
     background-color: #b6b9cd;
 }
 
-/* Estilos adicionales para la sección interactiva */
+/* Estilos adicionales */
 .interactive-section {
     display: flex;
     flex-direction: column;
@@ -81,6 +175,8 @@ body {
     color: #ffffff;
     margin-top: 5vh;
     margin-bottom: 5vh;
+    overflow: hidden; /* Evita desbordamientos durante la animación */
+    padding: 20px; /* Ajuste general de padding */
 }
 
 @media (min-width: 768px) {
@@ -94,6 +190,8 @@ body {
     width: 90%;
     padding: 20px;
     text-align: center;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0; /* Para la animación inicial */
 }
 
 @media (min-width: 768px) {
@@ -106,6 +204,7 @@ body {
 .text-container h2 {
     font-size: 1.8em;
     color: #ffffff;
+    margin: 0; /* Remueve espacio adicional */
 }
 
 .text-container p {
@@ -126,6 +225,8 @@ body {
 .carousel-container {
     width: 90%;
     margin-top: 20px;
+    animation: slideUpFade 1s ease forwards;
+    opacity: 0; /* Inicialmente oculto para animación */
 }
 
 @media (min-width: 768px) {
@@ -137,14 +238,81 @@ body {
 
 .carousel-container .carousel-item img {
     width: 100%;
-    max-height: 250px; /* Altura ajustada para móviles */
+    max-height: 250px;
     border-radius: 15px;
-    object-fit: cover; /* Ajusta la imagen al tamaño del contenedor sin distorsión */
+    object-fit: cover;
 }
 
 @media (min-width: 768px) {
     .carousel-container .carousel-item img {
-        max-height: 350px; /* Altura fija en pantallas grandes */
+        max-height: 350px;
         border-radius: 25px;
+    }
+}
+
+/* Botones */
+.btn-orange {
+    background-color: #f9b37a;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.btn-orange:hover {
+    background-color: #e09b63;
+}
+
+.btn-explore {
+    background-color: #424769;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-explore:hover {
+    background-color: #b6b9cd;
+}
+
+/* Colores de texto */
+.text-light-blue {
+    color: #b6b9cd;
+}
+
+.text-blue {
+    color: #3498db;
+}
+
+/* Fondo personalizado para la sección */
+.bg-light-blue {
+    background-color: #2d3250;
+}
+
+/* Animaciones */
+/* Animacion para el fade del texto */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animacion del contenedor del carrusel*/
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(150px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
