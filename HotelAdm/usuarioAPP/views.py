@@ -4,5 +4,5 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'usuarioAPP/homepage/inicio.html')
 
-def index(request):
+def cliente(request):
     return render(request, 'clienteAPP/homepage/inicio.html')
