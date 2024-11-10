@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <style>
+        body {
+            overflow-y: visible; /* Mostrar barra de desplazamiento vertical */
+            overflow-x: hidden; /* Ocultar barra de desplazamiento horizontal */
+            background-color: #2d3250;
+        }
+
+        /* Colores personalizados */
+        .bg-dark-blue {
+            background-color: #2d3250;
+        }
+
+        .bg-light-blue {
+            background-color: #424769;
+        }
+
+        .text-white {
+            color: #ffffff;
+        }
+
+        .text-light-blue {
+            color: #b6b9cd;
+        }
+
+        .contenido {
+            margin-right: 5vw;
+            margin-left: 5vw;
+        }
+
+        @media (min-width: 992px) {
+            .contenido {
+                margin-right: 25vh;
+                margin-left: 25vh;
+            }
+        }
+
+        .form-container {
+            background-color: #424769;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            color: #b6b9cd;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2d3250;
+            color: #ffffff;
+        }
+
+        .form-control:focus {
+            outline: 2px solid #f9b37a;
+        }
+
+        .btn-submit {
+            background-color: #f9b37a;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #e09b63;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenido">
+        <div class="form-container">
+            <h2 class="text-white">Formulario de Contacto</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" id="nombre" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo" class="form-label">Correo</label>
+                    <input type="email" id="correo" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="consulta" class="form-label">Consulta</label>
+                    <textarea id="consulta" class="form-control" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

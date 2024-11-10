@@ -69,3 +69,91 @@
         padding: 6px 8px;
     }
 }
+
+/* Estilos personalizados para las tarjetas */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Mantiene alineación a la izquierda */
+    margin: 0 auto; /* Centra el contenedor de las tarjetas dentro del contenedor principal */
+}
+
+@media (max-width: 576px) {
+    .card-container {
+        justify-content: center; /* Centrar en pantallas pequeñas */
+    }
+}
+
+
+.card-custom {
+    background-color: #2a3b5c;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: transform 0.2s;
+    width: 18%;
+    min-width: 230px;
+    max-width: 250px;
+    height: auto;
+}
+
+.card-custom:hover {
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    width: 100px;
+    height: 100px;
+}
+
+.card-body {
+    color: #ffffff;
+    text-align: center;
+}
+
+.edit-btn {
+    background-color: #2196f3;
+    border: none;
+    color: white;
+    width: 80%;
+}
+
+.edit-btn:hover {
+    background-color: #1a76d2;
+}
+
+/* Estilo para la tarjeta de "Añadir" */
+.add-card {
+    background-color: #f1c40f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 18%;
+    min-width: 230px;
+    max-width: 250px;
+    height: 300px;
+    color: #333333;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.add-card:hover {
+    transform: scale(1.05);
+}
+
+.add-icon {
+    font-size: 40px;
+    background-color: #fef5e7;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    color: #333;
+}
