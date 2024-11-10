@@ -1,79 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <style>
-        body {
-            overflow-y: visible;
-            overflow-x: hidden;
-            background-color: #2d3250;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+{% load static %}
+{% block content %}
 
-        .login-container {
-            background-color: #424769;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
+<title>Login</title>
+<style>
+    body {
+        overflow-y: visible;
+        overflow-x: hidden;
+        background-color: #2d3250;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
 
-        .login-title {
-            color: #ffffff;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
+    .login-container {
+        background-color: #424769;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+    .login-title {
+        color: #ffffff;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+    }
 
-        .form-label {
-            color: #b6b9cd;
-            display: block;
-            margin-bottom: 5px;
-        }
+    .form-group {
+        margin-bottom: 15px;
+    }
 
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #2d3250;
-            color: #ffffff;
-        }
+    .form-label {
+        color: #b6b9cd;
+        display: block;
+        margin-bottom: 5px;
+    }
 
-        .form-control:focus {
-            outline: 2px solid #f9b37a;
-        }
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #2d3250;
+        color: #ffffff;
+    }
 
-        .btn-login {
-            background-color: #f9b37a;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: 100%;
-        }
+    .form-control:focus {
+        outline: 2px solid #f9b37a;
+    }
 
-        .btn-login:hover {
-            background-color: #e09b63;
-        }
-    </style>
-</head>
+    .btn-login {
+        background-color: #f9b37a;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+
+    .btn-login:hover {
+        background-color: #e09b63;
+    }
+</style>
 <body>
     <div class="login-container">
+        <div>
+            <a href="/">
+                <img src="{% static 'usuarioAPP/imagenes/logo.png' %}" alt="Logo" width="150" height="40">
+            </a> 
+        </div>
         <h2 class="login-title">Iniciar Sesión</h2>
         <form>
             <div class="form-group">
@@ -88,4 +89,5 @@
         </form>
     </div>
 </body>
-</html>
+
+{% endblock %}

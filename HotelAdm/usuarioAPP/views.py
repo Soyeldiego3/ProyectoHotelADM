@@ -6,3 +6,9 @@ def index(request):
 
 def cliente(request):
     return render(request, 'clienteAPP/homepage/inicio.html')
+
+def contacto(request):
+    return render(request, 'usuarioAPP/contacto.html')
+
+def login(request):
+    return render(request, 'usuarioAPP/login.html')
