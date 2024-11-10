@@ -1,44 +1,87 @@
 {% extends "index.html" %}
+<!-- Extiende la plantilla base "index.html" para heredar su estructura general y estilos -->
+
 {% load static %}
+<!-- Carga la etiqueta "static" para poder acceder a archivos estáticos como imágenes, CSS y JavaScript -->
 
 <!-- Bloque de contenido -->
 {% block content %}
+<!-- Inicio del bloque de contenido llamado "content", donde se insertará contenido específico en esta plantilla -->
 
-<!-- Incluir la navbar en la plantilla -->
-{% include 'usuarioAPP/homepage/navbar.html' %}
+    <!-- Incluir la navbar en la plantilla -->
+    {% include 'usuarioAPP/homepage/navbar.html' %}
+    <!-- Incluye la barra de navegación (navbar) desde el archivo especificado, que se encuentra en "usuarioAPP/homepage/navbar.html" -->
 
-<div class="interactive-section contenido">
-    <!-- Sección con el texto y el carrusel de imágenes -->
-    <div class="text-container fade-in">
-        <h2 class="text-white">Redefine las reglas del sector inmobiliario</h2>
-        <p class="text-light-blue">
-            Es mucho más que solo un PMS. La plataforma ofrece un valor de 360 grados en todos los aspectos de la gestión de tu hotel.
-        </p>
-        <a href="#" class="btn btn-orange">Conoce más</a>
-        <a href="#" class="btn btn-explore text-light-blue">Explora nuestra plataforma</a>
-    </div>
-    <div class="carousel-container fade-in">
-        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{% static 'usuarioAPP/carousel/gif1.gif' %}" class="d-block w-100" alt="Image 1">
+    <div class="interactive-section contenido">
+        <!-- Contenedor principal de la sección interactiva con clase "contenido" -->
+
+        <!-- Sección con el texto y el carrusel de imágenes -->
+        <div class="text-container fade-in">
+            <!-- Contenedor para el texto con clase "fade-in" que permite animación de aparición gradual -->
+
+            <h2 class="text-white">Redefine las reglas del sector inmobiliario</h2>
+            <!-- Título en blanco que describe el propósito de la plataforma -->
+
+            <p class="text-light-blue">
+                Es mucho más que solo un PMS. La plataforma ofrece un valor de 360 grados en todos los aspectos de la gestión de tu hotel.
+            </p>
+            <!-- Párrafo en color azul claro que proporciona una breve descripción de la plataforma -->
+
+            <a href="#" class="btn btn-orange">Conoce más</a>
+            <!-- Botón de enlace con estilo de botón naranja que dirige a más información sobre la plataforma -->
+
+            <a href="#" class="btn btn-explore text-light-blue">Explora nuestra plataforma</a>
+            <!-- Otro botón de enlace en color azul claro que invita al usuario a explorar la plataforma -->
+        </div>
+
+        <div class="carousel-container fade-in">
+            <!-- Contenedor del carrusel de imágenes, también con la clase "fade-in" para animación de aparición gradual -->
+
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <!-- Carrusel de Bootstrap con ID "carouselExample", configurado para cambiar de imagen automáticamente cada 3 segundos -->
+
+                <div class="carousel-inner">
+                    <!-- Contenedor de las imágenes del carrusel -->
+
+                    <div class="carousel-item active">
+                        <!-- Elemento del carrusel que contiene la primera imagen, marcada como "active" para que sea la que aparece primero -->
+                        <img src="{% static 'usuarioAPP/carousel/gif1.gif' %}" class="d-block w-100" alt="Image 1">
+                        <!-- Imagen obtenida desde archivos estáticos, ocupando el 100% del ancho del contenedor -->
+                    </div>
+
+                    <div class="carousel-item">
+                        <!-- Elemento del carrusel que contiene la segunda imagen -->
+                        <img src="{% static 'usuarioAPP/carousel/img2.jpeg' %}" class="d-block w-100" alt="Image 2">
+                        <!-- Segunda imagen en el carrusel -->
+                    </div>
+
+                    <div class="carousel-item">
+                        <!-- Elemento del carrusel que contiene la tercera imagen -->
+                        <img src="{% static 'usuarioAPP/carousel/gif1.gif' %}" class="d-block w-100" alt="Image 3">
+                        <!-- Tercera imagen en el carrusel, reutilizando el primer GIF -->
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="{% static 'usuarioAPP/carousel/img2.jpeg' %}" class="d-block w-100" alt="Image 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'usuarioAPP/carousel/gif1.gif' %}" class="d-block w-100" alt="Image 3">
-                </div>
+
+                <!-- Controles del carrusel para navegar entre las imágenes -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <!-- Botón para ir a la imagen anterior -->
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <!-- Icono de control de "anterior" para el carrusel -->
+                    <span class="visually-hidden">Previous</span>
+                    <!-- Texto para accesibilidad, solo visible para lectores de pantalla -->
+                </button>
+
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <!-- Botón para ir a la imagen siguiente -->
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <!-- Icono de control de "siguiente" para el carrusel -->
+                    <span class="visually-hidden">Next</span>
+                    <!-- Texto para accesibilidad, solo visible para lectores de pantalla -->
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
     </div>
-</div>
+
 {% endblock %}
+<!-- Fin del bloque de contenido "content" -->
+
