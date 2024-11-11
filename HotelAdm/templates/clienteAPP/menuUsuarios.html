@@ -1,0 +1,52 @@
+{% load static %}
+{% block content %}
+
+<!-- Navbar principal -->
+{% include 'adminAPP/panel-nav-bar.html' %}
+
+<!-- Contenido principal -->
+<div class="container">
+    <div class="extra-bar d-flex flex-column flex-md-row justify-content-between align-items-center py-2">
+        <div class="d-flex justify-content-evenly w-100 w-md-25 mb-2 mb-md-0">
+            <button class="btn btn-custom-panel mx-1">Hoteles</button>
+            <button class="btn btn-custom-panel mx-1">Usuarios</button>
+        </div>
+
+        <div class="search-bar w-100 w-md-50">
+            <div class="input-group">
+                <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" class="form-control search-input" placeholder="Buscar..." aria-label="Buscar">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="container my-4">
+        <div class="card-container">
+            <!-- Tarjeta de Añadir -->
+            <div class="add-card">
+                <div class="add-icon">+</div>
+                <p>Añadir</p>
+            </div>
+
+            <!-- Tarjetas de usuario -->
+            <div class="card-custom">
+                <img src="https://via.placeholder.com/100" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">ID: 12345</h5>
+                    <p class="card-text">Recepcionista:</p>
+                    <p class="card-text">Lucas Perez</p>
+                    <button class="btn btn-primary edit-btn" onclick="window.location.href='homepage/registroUsuarios.html'">
+                        <i class="bi bi-pencil-fill"></i> Editar
+                    </button>
+                    
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'index.html' %}
+{% endblock %}

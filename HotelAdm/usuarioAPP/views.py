@@ -7,6 +7,21 @@ def index(request):
 def cliente(request):
     return render(request, 'clienteAPP/homepage/inicio.html')
 
+def menuHoteles(request):
+    return render (request,'clienteAPP/homepage/menuHoteles.html')
+
+def menuUsuarios(request):
+    return render (request,'clienteAPP/homepage/menuUsuarios.html')
+
+def registroUsuarios(request):
+    return render(request, 'clienteAPP/homepage/registroUsuario.html')
+
+def registroHoteles(request):
+    return render (request,'clienteAPP/homepage/registroHoteles.html')
+
+def cliente(request):
+    return render(request, 'clienteAPP/homepage/inicio.html')
+
 def contacto(request):
     return render(request, 'usuarioAPP/contacto.html')
 
