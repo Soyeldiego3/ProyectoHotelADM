@@ -1,87 +1,111 @@
 {% extends "index.html" %}
-<!-- Extiende la plantilla base "index.html" para heredar su estructura general y estilos -->
-
 {% load static %}
-<!-- Carga la etiqueta "static" para poder acceder a archivos estáticos como imágenes, CSS y JavaScript -->
 
-<!-- Bloque de contenido -->
 {% block content %}
-<!-- Inicio del bloque de contenido llamado "content", donde se insertará contenido específico en esta plantilla -->
-
-    <!-- Incluir la navbar en la plantilla -->
     {% include 'usuarioAPP/homepage/navbar.html' %}
-    <!-- Incluye la barra de navegación (navbar) desde el archivo especificado, que se encuentra en "usuarioAPP/homepage/navbar.html" -->
 
     <div class="interactive-section contenido">
-        <!-- Contenedor principal de la sección interactiva con clase "contenido" -->
-
-        <!-- Sección con el texto y el carrusel de imágenes -->
         <div class="text-container fade-in">
-            <!-- Contenedor para el texto con clase "fade-in" que permite animación de aparición gradual -->
-
-            <h2 class="text-white">Redefine las reglas del sector inmobiliario</h2>
-            <!-- Título en blanco que describe el propósito de la plataforma -->
-
+            <h2 class="text-white">Redefine las reglas del sector</h2>
             <p class="text-light-blue">
-                Es mucho más que solo un PMS. La plataforma ofrece un valor de 360 grados en todos los aspectos de la gestión de tu hotel.
+                Es mucho más de lo que crees. La plataforma ofrece un valor de 360 grados en todos los aspectos de la gestión de tu hotel.
             </p>
-            <!-- Párrafo en color azul claro que proporciona una breve descripción de la plataforma -->
-
             <a href="#" class="btn btn-orange">Conoce más</a>
-            <!-- Botón de enlace con estilo de botón naranja que dirige a más información sobre la plataforma -->
-
             <a href="#" class="btn btn-explore text-light-blue">Explora nuestra plataforma</a>
-            <!-- Otro botón de enlace en color azul claro que invita al usuario a explorar la plataforma -->
         </div>
 
         <div class="carousel-container fade-in">
-            <!-- Contenedor del carrusel de imágenes, también con la clase "fade-in" para animación de aparición gradual -->
-
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-                <!-- Carrusel de Bootstrap con ID "carouselExample", configurado para cambiar de imagen automáticamente cada 3 segundos -->
-
                 <div class="carousel-inner">
-                    <!-- Contenedor de las imágenes del carrusel -->
-
                     <div class="carousel-item active">
-                        <!-- Elemento del carrusel que contiene la primera imagen, marcada como "active" para que sea la que aparece primero -->
                         <img src="{% static 'usuarioAPP/carousel/gif1.gif' %}" class="d-block w-100" alt="Image 1">
-                        <!-- Imagen obtenida desde archivos estáticos, ocupando el 100% del ancho del contenedor -->
                     </div>
-
                     <div class="carousel-item">
-                        <!-- Elemento del carrusel que contiene la segunda imagen -->
                         <img src="{% static 'usuarioAPP/carousel/img2.jpeg' %}" class="d-block w-100" alt="Image 2">
-                        <!-- Segunda imagen en el carrusel -->
                     </div>
-
                     <div class="carousel-item">
-                        <!-- Elemento del carrusel que contiene la tercera imagen -->
                         <img src="{% static 'usuarioAPP/carousel/gif1.gif' %}" class="d-block w-100" alt="Image 3">
-                        <!-- Tercera imagen en el carrusel, reutilizando el primer GIF -->
                     </div>
                 </div>
-
-                <!-- Controles del carrusel para navegar entre las imágenes -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <!-- Botón para ir a la imagen anterior -->
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <!-- Icono de control de "anterior" para el carrusel -->
                     <span class="visually-hidden">Previous</span>
-                    <!-- Texto para accesibilidad, solo visible para lectores de pantalla -->
                 </button>
-
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                    <!-- Botón para ir a la imagen siguiente -->
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <!-- Icono de control de "siguiente" para el carrusel -->
                     <span class="visually-hidden">Next</span>
-                    <!-- Texto para accesibilidad, solo visible para lectores de pantalla -->
                 </button>
             </div>
         </div>
     </div>
 
-{% endblock %}
-<!-- Fin del bloque de contenido "content" -->
+    <div class="container mt-5 text-center">
+        <div class="additional-info animated fadeInUp">
+            <h2 class="text-white mb-4">Información sobre la Plataforma</h2>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card-inicio text-white shadow-lg h-100 p-3">
+                        <h4>Objetivos de la Plataforma</h4>
+                        <p>
+                            Optimizar la gestión de reservas en hoteles, asegurando eficiencia, seguridad y escalabilidad. Adaptarse a establecimientos de distintos tamaños con un enfoque en la experiencia de usuario.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card-inicio text-white shadow-lg h-100 p-3">
+                        <h4>Características Principales</h4>
+                        <ul class="list-unstyled">
+                            <li>Gestión de usuarios y permisos personalizados</li>
+                            <li>Configuración de hoteles y habitaciones</li>
+                            <li>Autenticación en dos pasos</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card-inicio text-white shadow-lg h-100 p-3">
+                        <h4>Ventajas del Sistema</h4>
+                        <p>
+                            Combina tecnología avanzada y una estructura modular para un desarrollo ágil. Desplegado en AWS con Docker, garantiza rendimiento óptimo en condiciones de carga intensa.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <style>
+        .card-inicio {
+            background-color: #424769;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .card-inicio:hover{
+            transform:scale(1.05);
+        }
+
+        .card-inicio h4 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #ffab40;
+        }
+
+        .card-inicio p, .card-inicio ul li {
+            color: #b6b9cd;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Estilos de las tarjetas de información */
+        .container h2 {
+            font-weight: 700;
+            color: #ffab40;
+            animation: fadeInDown 1.2s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+{% endblock %}
