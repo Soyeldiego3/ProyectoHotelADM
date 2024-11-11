@@ -2,16 +2,21 @@ from django.shortcuts import render
 
 # Create your views here.
 def panel_clientes(request):
-    return render(request, 'adminAPP/paneles/panel-clientes.html')
+    context = {'usuario': 'Admin'}
+    return render(request, 'adminAPP/paneles/panel-clientes.html',context)
 
 def panel_hoteles(request):
-    return render(request, 'adminAPP/paneles/panel-hoteles.html')
+    context = {'usuario': 'Admin'}
+    return render(request, 'adminAPP/paneles/panel-hoteles.html', context)
 
 def panel_usuarios(request):
-    return render(request, 'adminAPP/paneles/panel-usuarios.html')
+    context = {'usuario': 'Admin'}
+    return render(request, 'adminAPP/paneles/panel-usuarios.html', context)
 
 def reservas(request):
-    return render(request, 'adminAPP/reservas.html')
+    context = {'usuario': 'Usuario'}
+    return render(request, 'adminAPP/reservas.html', context)
 
 def reservasUsuario(request):
-    return render(request, 'adminAPP/reservas_usuario.html')
+    context = {'usuario': 'Usuario'}
+    return render(request, 'adminAPP/reservas_usuario.html', context)

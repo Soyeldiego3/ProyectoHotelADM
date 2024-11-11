@@ -16,11 +16,19 @@
                 <!-- Contenedor para botón y nombre de usuario -->
                 <div class="user-login d-flex align-items-center">
                     <li class="nav-item"><a class="nav-link btn btn-orange-login" href="/login"><i class="fa-solid fa-user"></i></a></li>
-                    <li class="nav-item nav-link text-light-blue">Usuario</li>
+                    <li class="nav-item nav-link text-light-blue usuario">
+                        {% block usuario %}
+                            {{ usuario }}
+                        {% endblock %}
+                    </li>
                 </div>
             </ul>
         </div>
     </div>
 </nav>
-
+<style>
+    .usuario:hover{
+        transform: scale(1.05);
+    }
+</style>
 {% endblock %}

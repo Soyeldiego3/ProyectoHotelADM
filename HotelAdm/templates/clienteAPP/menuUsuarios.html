@@ -9,8 +9,8 @@
 <div class="container">
     <div class="extra-bar d-flex flex-column flex-md-row justify-content-between align-items-center py-2">
         <div class="d-flex justify-content-evenly w-100 w-md-25 mb-2 mb-md-0">
-            <button class="btn btn-custom-panel mx-1">Hoteles</button>
-            <button class="btn btn-custom-panel mx-1">Usuarios</button>
+            <button class="btn btn-custom-panel mx-1" onclick="window.location.href='menuHoteles'">Hoteles</button>
+            <button class="btn btn-custom-panel mx-1" onclick="window.location.href='menuUsuarios'">Usuarios</button>
         </div>
 
         <div class="search-bar w-100 w-md-50">
@@ -25,7 +25,7 @@
     <div class="container my-4">
         <div class="card-container">
             <!-- Tarjeta de Añadir -->
-            <div class="add-card">
+            <div class="add-card" onclick="window.location.href='registroUsuarios'">
                 <div class="add-icon">+</div>
                 <p>Añadir</p>
             </div>
@@ -37,7 +37,7 @@
                     <h5 class="card-title">ID: 12345</h5>
                     <p class="card-text">Recepcionista:</p>
                     <p class="card-text">Lucas Perez</p>
-                    <button class="btn btn-primary edit-btn" onclick="window.location.href='homepage/registroUsuarios.html'">
+                    <button class="btn btn-primary edit-btn" onclick="window.location.href='registroUsuarios'">
                         <i class="bi bi-pencil-fill"></i> Editar
                     </button>
                     
