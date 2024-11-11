@@ -13,7 +13,7 @@ def menuHoteles(request):
 def menuUsuarios(request):
     return render (request,'clienteAPP/homepage/menuUsuarios.html')
 
-def registroUsuario(request):
+def registroUsuarios(request):
     return render(request, 'clienteAPP/homepage/registroUsuario.html')
 
 def registroHoteles(request):
