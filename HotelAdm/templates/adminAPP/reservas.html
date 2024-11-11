@@ -1,0 +1,116 @@
+{% load static %}
+{% block content %}
+
+<!-- Navbar principal -->
+{% include 'adminAPP/panel-nav-bar.html' %}
+
+<!-- Contenido principal -->
+<title>Reservas Admin</title>
+<div class="container">
+    <div class="extra-bar d-flex flex-column flex-md-row justify-content-between align-items-center py-2">
+        <div class="d-flex justify-content-evenly w-100 w-md-25 mb-2 mb-md-0 text-white">
+            <p>Usuario</p>
+            <h4>Reservas</h4>
+        </div>
+
+        <div class="search-bar w-100 w-md-50">
+            <div class="input-group">
+                <a href="" class="input-group-text">
+                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                </a>
+                <input type="text" class="form-control search-input" placeholder="Buscar..." aria-label="Buscar">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="reservation-list">
+        <div class="reservation-item">
+            <span>ID_reserva 1</span>
+            <a href="">
+                <i class="fas fa-eye"></i>
+            </a>
+        </div>
+        <div class="reservation-item">
+            <span>ID_reserva 2</span>
+            <a href="">
+                <i class="fas fa-eye"></i>
+            </a>
+        </div>
+        <div class="reservation-item">
+            <span>ID_reserva 3</span>
+            <a href="">
+                <i class="fas fa-eye"></i>
+            </a>
+        </div>
+        <div class="reservation-item">
+            <span>ID_reserva 4</span>
+            <a href="">
+                <i class="fas fa-eye"></i>
+            </a>
+        </div>
+
+        <div class="reservation-item">
+            <span>ID_reserva</span>
+            <a href="">
+                <i class="fas fa-eye"></i>
+            </a>
+        </div>
+        <div class="reservation-item">
+            <span>ID_reserva</span>
+            <a href="">
+                <i class="fas fa-eye"></i>
+            </a>
+        </div>
+        <div class="reservation-item">
+            <span>ID_reserva</span>
+            <a href="">
+                <i class="fas fa-eye"></i>
+            </a>
+        </div>
+        <div class="reservation-item">
+            <span>ID_reserva</span>
+            <a href="">
+                <i class="fas fa-eye"></i>
+            </a>
+        </div>
+        <div class="reservation-item">
+            <span>ID_reserva</span>
+            <a href="">
+                <i class="fas fa-eye"></i>
+            </a>
+        </div>
+        <div class="reservation-item">
+            <span>ID_reserva</span>
+            <a href="">
+                <i class="fas fa-eye"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .reservation-list {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .reservation-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        background: linear-gradient(to right, #f9b37a, #e09b63);
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+
+    .reservation-item i {
+        font-size: 20px;
+        color: black;
+    }
+</style>
+
+{% include 'index.html' %}
+{% endblock %}

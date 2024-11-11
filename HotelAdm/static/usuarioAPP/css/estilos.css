@@ -25,14 +25,6 @@ body {
     color: #424769;
 }
 
-/* ajuste de la pagina
-.body-content {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-*/
-
 /* margen para el contenido de la página, ajustable en pantallas grandes */
 .contenido {
     margin-right: 5vw;
@@ -52,6 +44,7 @@ body {
     color: #fff;
     padding: 40px 0;
     font-family: Arial, sans-serif;
+    margin-top: 50px;
 }
 
 .footer-content {
@@ -223,10 +216,22 @@ body {
 }
 
 .carousel-container {
-    width: 90%;
+    width: 100%;
+    min-height: 350px;
+    max-height: 350px;
+    overflow: hidden;
     margin-top: 20px;
     animation: slideUpFade 1s ease forwards;
     opacity: 0; /* Inicialmente oculto para animación */
+    border-radius: 15px; /* Redondea los bordes */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Añade sombra alrededor */
+}
+
+.carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px; /* Aplica el mismo borde redondeado a las imágenes */
 }
 
 @media (min-width: 768px) {

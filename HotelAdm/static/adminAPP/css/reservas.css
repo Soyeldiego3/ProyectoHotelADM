@@ -1,0 +1,112 @@
+.reservas-custom-filters-sidebar {
+    background-color: #f8e9a1;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reservas-custom-btn-huespedes {
+    background-color: #ffc107;
+    color: #333;
+    width: 100%;
+    text-align: left;
+}
+
+.reservas-custom-btn-huespedes:hover {
+    background-color: #e0a800;
+}
+
+.reservas-custom-btn-habitaciones {
+    background-color: #fd7e14;
+    color: #333;
+    width: 100%;
+    text-align: left;
+}
+
+.reservas-custom-btn-habitaciones:hover {
+    background-color: #e96c00;
+}
+
+.reservas-custom-btn-fecha-estadia {
+    background-color: #17a2b8;
+    color: #333;
+    width: 100%;
+    text-align: left;
+}
+
+.reservas-custom-btn-fecha-estadia:hover {
+    background-color: #138496;
+}
+
+.reservas-custom-btn-tipo-paquete {
+    background-color: #28a745;
+    color: #333;
+    width: 100%;
+    text-align: left;
+}
+
+.reservas-custom-btn-tipo-paquete:hover {
+    background-color: #218838;
+}
+
+.reservas-custom-btn-tarifa {
+    background-color: #dc3545;
+    color: #333;
+    width: 100%;
+    text-align: left;
+}
+
+.reservas-custom-btn-tarifa:hover {
+    background-color: #c82333;
+}
+
+.reservas-custom-btn-hotel {
+    background-color: #007bff;
+    color: #333;
+    width: 100%;
+    text-align: left;
+}
+
+.reservas-custom-btn-hotel:hover {
+    background-color: #0069d9;
+}
+
+.reservas-custom-btn-filtrar {
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+}
+
+.reservas-custom-btn-filtrar:hover {
+    background-color: #222;
+}
+
+.reservas-custom-card-item {
+    background-color: #f7d794;
+    border-radius: 10px;
+}
+
+.reservas-custom-card-img {
+    width: 60%;
+    margin: 0 auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.reservas-custom-card-body p {
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Asegura que los dropdowns estén alineados */
+.reservas-custom-btn-huespedes, .reservas-custom-btn-habitaciones, .reservas-custom-btn-fecha-estadia, .reservas-custom-btn-tipo-paquete, .reservas-custom-btn-tarifa, .reservas-custom-btn-hotel {
+    margin-bottom: 10px;
+}
+
+.reservas-custom-btn-huespedes:hover, .reservas-custom-btn-habitaciones:hover, .reservas-custom-btn-fecha-estadia:hover, .reservas-custom-btn-tipo-paquete:hover, .reservas-custom-btn-tarifa:hover, .reservas-custom-btn-hotel:hover {
+    opacity: 0.9;
+}
+
+/* Estilo de contenedor principal */
+.reservas-custom-main-container {
+    padding: 20px;
+}

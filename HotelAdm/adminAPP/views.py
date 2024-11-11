@@ -9,3 +9,9 @@ def panel_hoteles(request):
 
 def panel_usuarios(request):
     return render(request, 'adminAPP/paneles/panel-usuarios.html')
+
+def reservas(request):
+    return render(request, 'adminAPP/reservas.html')
+
+def reservasUsuario(request):
+    return render(request, 'adminAPP/reservas_usuario.html')
