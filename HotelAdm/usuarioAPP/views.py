@@ -14,7 +14,7 @@ def menuUsuarios(request):
     return render (request,'clienteAPP/homepage/menuUsuarios.html')
 
 def registroUsuarios(request):
-    return render(request, 'clienteAPP/homepage/registroUsuario.html')
+    return render(request, 'clienteAPP/homepage/registroUsuarios.html')
 
 def registroHoteles(request):
     return render (request,'clienteAPP/homepage/registroHoteles.html')

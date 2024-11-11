@@ -4,7 +4,7 @@
 <!-- Navbar de la pagina -->
 <nav class="navbar navbar-expand-lg bottom-line navbar-bg">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <img src="{% static 'usuarioAPP/imagenes/logo.png' %}" alt="Logo" width="150" height="40">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,144 +12,136 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link text-light-blue" href="#">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link text-light-blue" href="/">Pagina principal</a></li>
                 <!-- Contenedor para botón y nombre de usuario -->
                 <div class="user-login d-flex align-items-center">
-                    <li class="nav-item"><a class="nav-link btn btn-orange-login" href="#"><i class="fa-solid fa-user"></i></a></li>
-                    <li class="nav-item nav-link text-light-blue">Cliente</li>
+                    <li class="nav-item"><a class="nav-link btn btn-orange-login" href="/login"><i class="fa-solid fa-user"></i></a></li>
+                    <li class="nav-item nav-link text-light-blue">Usuario</li>
                 </div>
             </ul>
         </div>
     </div>
 </nav>
 
-{% endblock %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario Agregar Usuario</title>
-    <style>
-        body {
-            overflow-y: visible; /* Mostrar barra de desplazamiento vertical */
-            overflow-x: hidden; /* Ocultar barra de desplazamiento horizontal */
-            background-color: #2d3250;
-        }
+<title>Formulario Agregar Usuario</title>
+<style>
+    body {
+        overflow-y: visible; /* Mostrar barra de desplazamiento vertical */
+        overflow-x: hidden; /* Ocultar barra de desplazamiento horizontal */
+        background-color: #2d3250;
+    }
 
-        /* Colores personalizados */
-        .bg-dark-blue {
-            background-color: #2d3250;
-        }
+    /* Colores personalizados */
+    .bg-dark-blue {
+        background-color: #2d3250;
+    }
 
-        .bg-light-blue {
-            background-color: #424769;
-        }
+    .bg-light-blue {
+        background-color: #424769;
+    }
 
-        .text-white {
-            color: #ffffff;
-        }
+    .text-white {
+        color: #ffffff;
+    }
 
-        .text-light-blue {
-            color: #b6b9cd;
-        }
+    .text-light-blue {
+        color: #b6b9cd;
+    }
 
+    .contenido {
+        margin-right: 5vw;
+        margin-left: 5vw;
+    }
+
+    @media (min-width: 992px) {
         .contenido {
-            margin-right: 5vw;
-            margin-left: 5vw;
+            margin-right: 25vh;
+            margin-left: 25vh;
         }
+    }
 
-        @media (min-width: 992px) {
-            .contenido {
-                margin-right: 25vh;
-                margin-left: 25vh;
-            }
-        }
+    .form-container {
+        background-color: #424769;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-top: 20px;
+    }
 
-        .form-container {
-            background-color: #424769;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-top: 20px;
-        }
+    .form-group {
+        margin-bottom: 15px;
+    }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+    .form-label {
+        color: #b6b9cd;
+        display: block;
+        margin-bottom: 5px;
+    }
 
-        .form-label {
-            color: #b6b9cd;
-            display: block;
-            margin-bottom: 5px;
-        }
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #2d3250;
+        color: #ffffff;
+    }
 
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #2d3250;
-            color: #ffffff;
-        }
+    .form-control:focus {
+        outline: 2px solid #f9b37a;
+    }
 
-        .form-control:focus {
-            outline: 2px solid #f9b37a;
-        }
+    .btn-submit {
+        background-color: #f9b37a;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
-        .btn-submit {
-            background-color: #f9b37a;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    .btn-submit:hover {
+        background-color: #e09b63;
+    }
+</style>
 
-        .btn-submit:hover {
-            background-color: #e09b63;
-        }
-    </style>
-</head>
-<body>
-    
-    <div class="contenido">
-        <div class="form-container">
-            <h2 class="text-white">Registro Usuarios</h2>
-            <form>
-                <div class="form-group">
-                    <label for="id" class="form-label">ID:</label>
-                    
-                </div>
-                <div class="form-group">
-                    <label for="nombres" class="form-label">Nombres</label>
-                    <input type="text" id="nombres" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="apellidos" class="form-label">Apellidos</label>
-                    <input type="text" id="apellidos" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" id="contraseña" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="correo" class="form-label">Correo</label>
-                    <input type="email" id="correo" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="rut" class="form-label">RUT</label>
-                    <input  id="rut" class="form-control" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="telfono" class="form-label">Telefono</label>
-                    <input id="contacto" class="form-control" required></textarea>
-                </div>
-                <center>
-                <button type="submit" class="btn-submit">Guardar</button>
-            </form>
-        </div>
+<div class="contenido">
+    <div class="form-container">
+        <h2 class="text-white">Registro Usuarios</h2>
+        <form>
+            <div class="form-group">
+                <label for="id" class="form-label">ID:</label>
+                
+            </div>
+            <div class="form-group">
+                <label for="nombres" class="form-label">Nombres</label>
+                <input type="text" id="nombres" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" id="apellidos" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" id="contraseña" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="correo" class="form-label">Correo</label>
+                <input type="email" id="correo" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="rut" class="form-label">RUT</label>
+                <input  id="rut" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="telfono" class="form-label">Telefono</label>
+                <input id="contacto" class="form-control" required></textarea>
+            </div>
+            <center>
+            <button type="submit" class="btn-submit">Guardar</button>
+        </form>
     </div>
-</body>
-</html>
+</div>
+
+{% endblock %}
