@@ -10,6 +10,9 @@ def cliente(request):
 def contacto(request):
     return render(request, 'usuarioAPP/contacto.html')
 
+def servicios(request):
+    return render(request, 'usuarioAPP/servicios.html')
+
 def login(request):
     return render(request, 'usuarioAPP/login.html')
 

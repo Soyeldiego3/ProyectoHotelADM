@@ -1,0 +1,74 @@
+.servicios-container {
+    margin: 20px auto;
+    position: relative;
+    width: 90%; /* Asegurar que las tarjetas siempre quepan */
+    max-width: 1200px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaciado entre tarjetas */
+   /* overflow: hidden;  Evitar desbordes */
+   margin-top: 50px;
+}
+
+.servicios-card {
+    background-color: #424769;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Transiciones suaves */
+    flex: 0 0 28%; /* Las tarjetas ocupan el 28% del contenedor */
+    cursor: pointer;
+    transform-origin: center;
+}
+
+.servicios-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.servicios-card.active {
+    transform: scale(1.1); /* Aumenta ligeramente de tamaño */
+    z-index: 2; /* Llevar al frente */
+    opacity: 1; /* Opacidad completa */
+}
+
+.servicios-card:not(.active) {
+    transform: scale(0.9); /* Reducir tamaño */
+    opacity: 0.7; /* Menor opacidad */
+}
+
+/* Agregar hover para las tarjetas difuminadas */
+.servicios-card:not(.active):hover {
+    transform: scale(0.95); /* Crece ligeramente al pasar el mouse */
+    opacity: 0.9; /* Recupera algo de opacidad */
+}
+
+.servicios-btn {
+    background-color: #f9b37a;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.servicios-btn:hover {
+    background-color: #e89a63;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .servicios-card {
+        flex: 0 0 40%; /* Las tarjetas ocupan más espacio */
+    }
+}
+
+@media (max-width: 480px) {
+    .servicios-card {
+        flex: 0 0 80%; /* En pantallas muy pequeñas, ocupan casi todo */
+    }
+}

@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+    {% include 'usuarioAPP/homepage/navbar.html' %}
+    <div class="servicios-container">
+        <div class="servicios-card">
+            <img src="https://via.placeholder.com/150" alt="Service 1">
+            <h3>Service 1</h3>
+            <p>Details about service 1.</p>
+            <button class="servicios-btn">Ver más</button>
+        </div>
+        <div class="servicios-card">
+            <img src="https://via.placeholder.com/150" alt="Service 2">
+            <h3>Service 2</h3>
+            <p>Details about service 2.</p>
+            <button class="servicios-btn">Ver más</button>
+        </div>
+        <div class="servicios-card">
+            <img src="https://via.placeholder.com/150" alt="Service 3">
+            <h3>Service 3</h3>
+            <p>Details about service 3.</p>
+            <button class="servicios-btn">Ver más</button>
+        </div>
+    </div>
+    
+{% endblock %}
