@@ -1,4 +1,0 @@
-Vistas por hacer o⩊o
-
-- Pagina Principal  > en proceso
-- Pagina de inicio de sesion (login)
