@@ -77,14 +77,14 @@ WSGI_APPLICATION = 'HotelAdm.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    #'default': {
-    #    'ENGINE': 'mysql.connector.django',
-    #    'NAME': 'hoteladm',
-    #    'USER': 'root',
-    #   'PASSWORD': '',
-    #    'HOST': 'db',  # Puede ser 'db' si es con Docker Compose o ip local si esta configurado
-    #    'PORT': '3306',
-    #}
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'hotel_management',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
 }
 
 

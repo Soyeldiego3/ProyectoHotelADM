@@ -1,5 +1,6 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+
 
 urlpatterns = [
     path('panel', views.panel_clientes, name='clientes'),
@@ -9,4 +10,7 @@ urlpatterns = [
 
     path('reservas', views.reservas, name='reservas'),
     path('reservasUsuario', views.reservasUsuario, name='reservasUsuario'),
+    path('crear_cliente/', views.crear_cliente, name='crear_cliente'),
+    path('listar_cliente/', views.listar_clientes, name='listar_cliente'),
+    path('editar_cliente/<int:pk>/', views.editar_cliente, name='editar_cliente')
 ]
