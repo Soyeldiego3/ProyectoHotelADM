@@ -57,6 +57,7 @@ def listar_habitaciones(request):
         'selected_hotel': selected_hotel,
         'busqueda': busqueda,
         'mostrar_habilitadas': mostrar_habilitadas,
+        'usuario':'Cliente',
     })
 def cambiar_estado_habitacion(request, habitacion_id):
     habitacion = get_object_or_404(Habitacion, id=habitacion_id)

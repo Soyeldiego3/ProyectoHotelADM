@@ -38,7 +38,7 @@
             <!-- Tarjetas de usuario -->
             {% for hotel in hoteles %}
             <div class="card-custom hotel-card {% if not cliente.activo %}inactivo{% endif %}">
-                <img src="{% static 'adminAPP/imagenes/icon.png'  %}" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
+                <img src="{% static 'usuarioAPP/imagenes/logo.png'  %}" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
                 <div class="card-body">
                     
                     <p class="card-text">Nombre: {{ hotel.nombre }}</p>
@@ -56,6 +56,8 @@
         </div>
     </div>
 </div>
-
+<br>
+<br>
+<br>
 {% include 'index.html' %}
 {% endblock %}

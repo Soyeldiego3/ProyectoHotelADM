@@ -5,9 +5,6 @@
         <!-- Botón de eliminar en la esquina superior derecha -->
         <form method="post" style="position: absolute; top: 10px; right: 10px;">
             {% csrf_token %}
-            <button type="submit" name="eliminar" class="btn btn-danger btn-sm" onclick="return confirmarDeshabilitar();" title="Eliminar Hotel">
-                &times;
-            </button>
         </form>
         <div class="card-header text-center" style="background-color: #1f2235; color: #f8f9fa;">
             <h4>Editar Hotel: {{ hotel.nombre }}</h4>

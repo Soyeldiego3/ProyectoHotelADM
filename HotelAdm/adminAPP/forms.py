@@ -58,3 +58,27 @@ class UsuarioForm(forms.ModelForm):
             'class': 'form-check-input',
             'style': 'background-color: #1f2235; color: #f8f9fa; border: 1px solid #f8f9fa;'
         })
+
+
+class ReservaForm(forms.ModelForm):
+    class Meta:
+        model = Reserva
+        fields = ['cliente', 'habitacion', 'hotel', 'fecha_entrada', 'fecha_salida']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs.update({
+                'class': 'form-control',
+                'style': 'background-color: #1f2235; color: #f8f9fa; border: 1px solid #f8f9fa;'
+            })
+
+        # Filtrar habitaciones disponibles
+        if 'hotel' in self.data:
+            try:
+                hotel_id = int(self.data.get('hotel'))
+                self.fields['habitacion'].queryset = Habitacion.objects.filter(hotel_id=hotel_id, disponible=True)
+            except (ValueError, TypeError):
+                pass  # Ignorar errores si no hay un hotel válido seleccionado
+        elif self.instance.pk:
+            self.fields['habitacion'].queryset = self.instance.hotel.habitacion_set.filter(disponible=True)
