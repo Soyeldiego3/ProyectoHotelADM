@@ -1,9 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils import timezone
 
 class Cliente(models.Model):
     nombre = models.CharField(max_length=100)
-    correo = models.EmailField(unique=True)
+    correo = models.EmailField(unique=True, default='correo_temporal@example.com')
     telefono = models.CharField(max_length=15, blank=True, null=True)
     direccion = models.TextField(blank=True, null=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
@@ -12,35 +13,48 @@ class Cliente(models.Model):
     def __str__(self):
         return self.nombre
 
-class Usuario(AbstractUser):
-    rol = models.CharField(
-        max_length=50,
-        choices=[('administrador', 'Administrador'), ('recepcionista', 'Recepcionista')]
-    )
-    hotel = models.ForeignKey('Hotel', on_delete=models.CASCADE, null=True, blank=True)
-
-    # Agregar `related_name` para evitar conflictos
-    groups = models.ManyToManyField(
-        'auth.Group',
-        related_name='usuario_groups',  # Nombre único
-        blank=True,
-        help_text='Los grupos a los que pertenece este usuario.'
-    )
-    user_permissions = models.ManyToManyField(
-        'auth.Permission',
-        related_name='usuario_permissions',  # Nombre único
-        blank=True,
-        help_text='Permisos específicos para este usuario.'
-    )
-
 class Hotel(models.Model):
     nombre = models.CharField(max_length=255)
     direccion = models.TextField()
     telefono = models.CharField(max_length=15)
-    correo = models.EmailField()
+    correo = models.EmailField(default='correo_temporal@example.com')
+    activo = models.BooleanField(default=True)
 
     def __str__(self):
         return self.nombre
+
+class Usuario(AbstractUser):
+    # Campos adicionales
+    nombre = models.CharField(max_length=100, default="temp_user")
+    correo = models.EmailField(unique=True, default='correo_temporal@example.com')
+    telefono = models.CharField(max_length=15, blank=True, null=True)
+    direccion = models.TextField(blank=True, null=True)
+    
+    # Relación con el modelo Hotel
+    hotel = models.ForeignKey(Hotel, on_delete=models.SET_NULL, null=True, blank=True)
+    
+    # Campos adicionales
+    fecha_creacion = models.DateTimeField(default=timezone.now)
+    activo = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.nombre
+
+    # Renombramos las relaciones de los campos 'groups' y 'user_permissions'
+    groups = models.ManyToManyField(
+        'auth.Group', 
+        related_name='usuario_auth_groups',  # Cambia el nombre del reverse accessor
+        related_query_name='usuario_auth_group',  # Cambia el nombre de la consulta
+        blank=True
+    )
+    
+    user_permissions = models.ManyToManyField(
+        'auth.Permission', 
+        related_name='usuario_auth_permissions',  # Cambia el nombre del reverse accessor
+        related_query_name='usuario_auth_permission',  # Cambia el nombre de la consulta
+        blank=True
+    )
+
 
 class Habitacion(models.Model):
     numero = models.CharField(max_length=10)

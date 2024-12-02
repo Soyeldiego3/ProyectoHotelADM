@@ -15,13 +15,14 @@
         </div>
 
         <div class="search-bar w-100 w-md-50">
-            <div class="input-group">
-                <a href="" class="input-group-text">
-                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                </a>
-                <input type="text" class="form-control search-input" placeholder="Buscar..." aria-label="Buscar">
-            </div>
+            <form method="get" action="{% url 'hoteles' %}" class="input-group">
+                <input type="text" name="search" class="form-control search-input" placeholder="Buscar..." aria-label="Buscar" value="{{ query }}">
+                <button type="submit" class="input-group-text">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
         </div>
+
     </div>
 </div>
 <div class="container">
@@ -29,10 +30,11 @@
         <div class="card-container">
             <!-- Tarjeta de Añadir -->
             <div class="add-card">
-                <div class="add-icon">+</div>
-                <p>Añadir</p>
+                <a href="{% url 'crear_hotel' %}" class="text-decoration-none text-dark text-center">
+                    <div class="add-icon">+</div>
+                    <p>Añadir</p>
+                </a>
             </div>
-
             <!-- Tarjetas de usuario -->
             <div class="card-custom">
                 <img src="https://via.placeholder.com/100" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
@@ -44,24 +46,24 @@
                 </div>
             </div>
 
-            <div class="card-custom">
+            <!-- Tarjetas de usuario -->
+            {% for hotel in hoteles %}
+            <div class="card-custom hotel-card {% if not cliente.activo %}inactivo{% endif %}">
                 <img src="https://via.placeholder.com/100" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
                 <div class="card-body">
-                    <h5 class="card-title">ID: 12345</h5>
-                    <p class="card-text">Nombre: Hotel 2</p>
-                    <p class="card-text">Otros detalles...</p>
-                    <button class="btn btn-primary edit-btn"><i class="bi bi-pencil-fill"></i> Editar</button>
+                    
+                    <p class="card-text">Nombre: {{ hotel.nombre }}</p>
+                    <p class="card-text">Correo: {{ hotel.correo }}</p>
+                    <p class="card-text">Teléfono: {{ hotel.telefono }}</p>
+                    <h6 class="card-title">ID: {{ hotel.id }}</h6>
+                    <br>
+                    <a href="{% url 'editar_hotel' hotel.id %}" class="btn btn-primary edit-btn">
+                        <i class="bi bi-pencil-fill"></i> Editar
+                    </a>
                 </div>
             </div>
-            <div class="card-custom">
-                <img src="https://via.placeholder.com/100" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
-                <div class="card-body">
-                    <h5 class="card-title">ID: 12345</h5>
-                    <p class="card-text">Nombre: Hotel 3</p>
-                    <p class="card-text">Otros detalles...</p>
-                    <button class="btn btn-primary edit-btn"><i class="bi bi-pencil-fill"></i> Editar</button>
-                </div>
-            </div>
+            {% endfor %}
+
         </div>
     </div>
 </div>
