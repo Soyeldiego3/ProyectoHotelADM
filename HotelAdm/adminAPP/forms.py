@@ -40,5 +40,21 @@ class UsuarioForm(forms.ModelForm):
                 'class': 'form-control',
                 'style': 'background-color: #1f2235; color: #f8f9fa; border: 1px solid #f8f9fa;'
             })
+        
+        # Asegurarse de que solo se muestren los hoteles activos
         self.fields['hotel'].queryset = Hotel.objects.filter(activo=True)
         self.fields['hotel'].empty_label = "Seleccione un hotel"
+        
+        # Verificar si el hotel está en el queryset de opciones disponibles
+        if self.instance and self.instance.hotel and self.instance.hotel not in self.fields['hotel'].queryset:
+            self.fields['hotel'].queryset = self.fields['hotel'].queryset.filter(id=self.instance.hotel.id)
+        
+        self.fields['direccion'].widget = forms.TextInput(attrs={
+            'class': 'form-control',
+            'style': 'background-color: #1f2235; color: #f8f9fa; border: 1px solid #f8f9fa;'
+        })
+
+        self.fields['is_active'].widget = forms.CheckboxInput(attrs={
+            'class': 'form-check-input',
+            'style': 'background-color: #1f2235; color: #f8f9fa; border: 1px solid #f8f9fa;'
+        })

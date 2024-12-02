@@ -26,7 +26,7 @@ class Hotel(models.Model):
 class Usuario(AbstractUser):
     # Campos adicionales
     nombre = models.CharField(max_length=100, default="temp_user")
-    correo = models.EmailField(unique=True, default='correo_temporal@example.com')
+    correo = models.EmailField(unique=True, default='correo@example.com')
     telefono = models.CharField(max_length=15, blank=True, null=True)
     direccion = models.TextField(blank=True, null=True)
     

@@ -45,7 +45,7 @@
             <!-- Tarjetas de usuario -->
             {% for cliente in clientes %}
             <div class="card-custom cliente-card {% if not cliente.activo %}inactivo{% endif %}">
-                <img src="https://via.placeholder.com/100" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
+                <img src="{% static 'adminAPP/imagenes/icon.png'  %}" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
                 <div class="card-body">
                     
                     <p class="card-text">Nombre: {{ cliente.nombre }}</p>

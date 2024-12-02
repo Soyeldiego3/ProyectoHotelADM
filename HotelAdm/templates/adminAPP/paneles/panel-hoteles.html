@@ -36,20 +36,9 @@
                 </a>
             </div>
             <!-- Tarjetas de usuario -->
-            <div class="card-custom">
-                <img src="https://via.placeholder.com/100" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
-                <div class="card-body">
-                    <h5 class="card-title">ID: 12345</h5>
-                    <p class="card-text">Nombre: Hotel 1</p>
-                    <p class="card-text">Otros detalles...</p>
-                    <button class="btn btn-primary edit-btn"><i class="bi bi-pencil-fill"></i> Editar</button>
-                </div>
-            </div>
-
-            <!-- Tarjetas de usuario -->
             {% for hotel in hoteles %}
             <div class="card-custom hotel-card {% if not cliente.activo %}inactivo{% endif %}">
-                <img src="https://via.placeholder.com/100" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
+                <img src="{% static 'adminAPP/imagenes/icon.png'  %}" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
                 <div class="card-body">
                     
                     <p class="card-text">Nombre: {{ hotel.nombre }}</p>

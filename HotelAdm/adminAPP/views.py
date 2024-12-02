@@ -25,9 +25,13 @@ def panel_hoteles(request):
     return render(request, 'adminAPP/paneles/panel-hoteles.html', {'hoteles': hoteles, 'query': query, 'usuario': 'Admin'})
 
 def panel_usuarios(request):
-    context = {'usuario': 'Admin'}
-    return render(request, 'adminAPP/paneles/panel-usuarios.html', context)
-
+    query = request.GET.get('search', '')  # Obtén el parámetro de búsqueda
+    usuarios = Usuario.objects.all()
+    
+    if query:  # Si hay un término de búsqueda, filtra los clientes
+        usuarios = usuarios.filter(nombre__icontains=query)  # Cambia "nombre" por el campo que quieras filtrar
+    
+    return render(request, 'adminAPP/paneles/panel-usuarios.html', {'usuarios': usuarios, 'query': query, 'usuario': 'Admin'})
 def reservas(request):
     context = {'usuario': 'Usuario'}
     return render(request, 'adminAPP/reservas.html', context)
@@ -112,23 +116,62 @@ def crear_usuario(request):
         if form.is_valid():
             form.save()
             return redirect('usuarios')
+        else:
+            # Mostrar los errores en la consola
+            print("Formulario no válido:", form.errors)
     else:
         form = UsuarioForm()
     return render(request, 'adminAPP/crear_usuario.html', {'form': form})
 
 def editar_usuario(request, pk):
     usuario = get_object_or_404(Usuario, pk=pk)
+    
     if request.method == 'POST':
         if 'guardar' in request.POST:
             form = UsuarioForm(request.POST, instance=usuario)
+            
             if form.is_valid():
-                form.save()
-                return redirect('usuarios')
+                try:
+                    # Actualiza los campos del usuario, asegurando que 'is_active' se maneje correctamente
+                    usuario = form.save(commit=False)
+                    usuario.is_active = form.cleaned_data['is_active']  # Actualiza el estado 'is_active'
+                    
+                    # Verificar si el 'hotel' elegido está dentro de los hoteles activos
+                    hotel_seleccionado = form.cleaned_data['hotel']
+                    if hotel_seleccionado and hotel_seleccionado.activo:
+                        usuario.save()
+                        return redirect('usuarios')  # Redirige al listado de usuarios después de guardar
+                    else:
+                        form.add_error('hotel', 'El hotel seleccionado no está activo.')
+                        return render(request, 'adminAPP/editar_usuario.html', {
+                            'form': form,
+                            'usuario': usuario,
+                            'error': 'Por favor, selecciona un hotel activo.'
+                        })
+                
+                except Exception as e:
+                    # Manejo de errores más detallado
+                    print("Error al guardar el usuario:", e)
+                    return render(request, 'adminAPP/editar_usuario.html', {
+                        'form': form,
+                        'usuario': usuario,
+                        'error': f'Hubo un error al guardar los cambios: {str(e)}'
+                    })
+            else:
+                # Mostrar los errores de validación en la consola para depuración
+                print("Errores de validación del formulario:", form.errors)
+                return render(request, 'adminAPP/editar_usuario.html', {
+                    'form': form,
+                    'usuario': usuario,
+                    'error': f'Errores de validación: {form.errors}'
+                })
+                
         elif 'eliminar' in request.POST:
-            usuario.activo = False
+            # Deshabilitar el usuario (marcar como no activo)
+            usuario.is_active = False
             usuario.save()
-            return redirect('usuarios')
+            return redirect('usuarios')  # Redirige al listado de usuarios después de deshabilitar
     else:
         form = UsuarioForm(instance=usuario)
+    
     return render(request, 'adminAPP/editar_usuario.html', {'form': form, 'usuario': usuario})
-

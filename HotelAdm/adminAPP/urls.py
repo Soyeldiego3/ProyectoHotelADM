@@ -10,11 +10,18 @@ urlpatterns = [
 
     path('reservas', views.reservas, name='reservas'),
     path('reservasUsuario', views.reservasUsuario, name='reservasUsuario'),
-    path('crear_cliente/', views.crear_cliente, name='crear_cliente'),
+    path('crear_cliente', views.crear_cliente, name='crear_cliente'),
     #path('listar_cliente/', views.listar_clientes, name='listar_cliente'),
-    path('editar_cliente/<int:pk>/', views.editar_cliente, name='editar_cliente'),
+    path('editar_cliente/<int:pk>', views.editar_cliente, name='editar_cliente'),
 
-    path('crear_hotel/', views.crear_hotel, name='crear_hotel'),
+    path('crear_hotel', views.crear_hotel, name='crear_hotel'),
     path('editar_hotel/<int:pk>/', views.editar_hotel, name='editar_hotel'),
+<<<<<<< Updated upstream
     
+=======
+
+    path('crear_usuario', views.crear_usuario, name='crear_usuario'),
+    path('editar_usuario/<int:pk>', views.editar_usuario, name='editar_usuario'),
+
+>>>>>>> Stashed changes
 ]
