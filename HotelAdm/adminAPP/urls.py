@@ -16,4 +16,5 @@ urlpatterns = [
 
     path('crear_hotel/', views.crear_hotel, name='crear_hotel'),
     path('editar_hotel/<int:pk>/', views.editar_hotel, name='editar_hotel'),
+    
 ]

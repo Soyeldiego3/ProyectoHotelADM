@@ -59,9 +59,10 @@ class Usuario(AbstractUser):
 class Habitacion(models.Model):
     numero = models.CharField(max_length=10)
     tipo = models.CharField(max_length=50, choices=[('estándar', 'Estándar'), ('suite', 'Suite')])
-    precio_por_noche = models.DecimalField(max_digits=10, decimal_places=2)
+    precio_por_noche = models.DecimalField(max_digits=10, decimal_places=0)
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
-    disponible = models.BooleanField(default=True)
+    habilitada = models.BooleanField(default=True)  # Indica si está operativa
+    disponible = models.BooleanField(default=True)  # Indica si está ocupada o libre
 
     def __str__(self):
         return f"{self.tipo} - {self.numero} ({self.hotel.nombre})"
