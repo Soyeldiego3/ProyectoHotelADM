@@ -1,2 +1,3 @@
-django
+django == 3.2
 mysql-connector-python
+mysqlclient

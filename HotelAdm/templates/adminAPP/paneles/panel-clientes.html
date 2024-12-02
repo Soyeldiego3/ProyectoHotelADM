@@ -4,6 +4,7 @@
 <!-- Navbar principal -->
 {% include 'adminAPP/panel-nav-bar.html' %}
 
+
 <!-- Contenido principal -->
 <title>Panel Clientes</title>
 <div class="container">
@@ -15,12 +16,18 @@
         </div>
 
         <div class="search-bar w-100 w-md-50">
-            <div class="input-group">
-                <a href="" class="input-group-text">
-                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                </a>
-                <input type="text" class="form-control search-input" placeholder="Buscar..." aria-label="Buscar">
-            </div>
+            <form method="get" action="{% url 'clientes' %}" class="input-group">
+                <input type="text" name="search" class="form-control search-input" placeholder="Buscar..." aria-label="Buscar" value="{{ query }}">
+                <button type="submit" class="input-group-text">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+
+        <!-- Checkbox para mostrar inactivos -->
+        <div class="form-check form-switch ms-3">
+            <input class="form-check-input" type="checkbox" id="mostrarInactivos" onchange="toggleInactivos()">
+            <label class="form-check-label text-white" for="mostrarInactivos">Mostrar inactivos</label>
         </div>
     </div>
 </div>
@@ -29,33 +36,53 @@
         <div class="card-container">
             <!-- Tarjeta de Añadir -->
             <div class="add-card">
-                <div class="add-icon">+</div>
-                <p>Añadir</p>
+                <a href="{% url 'crear_cliente' %}" class="text-decoration-none text-dark text-center">
+                    <div class="add-icon">+</div>
+                    <p>Añadir</p>
+                </a>
             </div>
 
             <!-- Tarjetas de usuario -->
-            <div class="card-custom">
+            {% for cliente in clientes %}
+            <div class="card-custom cliente-card {% if not cliente.activo %}inactivo{% endif %}">
                 <img src="https://via.placeholder.com/100" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
                 <div class="card-body">
-                    <h5 class="card-title">ID: 12345</h5>
-                    <p class="card-text">Nombre: Juan Pérez</p>
-                    <p class="card-text">Otros detalles...</p>
-                    <button class="btn btn-primary edit-btn"><i class="bi bi-pencil-fill"></i> Editar</button>
+                    
+                    <p class="card-text">Nombre: {{ cliente.nombre }}</p>
+                    <p class="card-text">Correo: {{ cliente.correo }}</p>
+                    <p class="card-text">Teléfono: {{ cliente.telefono }}</p>
+                    <p class="card-text">Estado: {{ cliente.activo|yesno:"Activo,Inactivo" }}</p>
+                    <h6 class="card-title">ID: {{ cliente.id }}</h6>
+                    <br>
+                    <a href="{% url 'editar_cliente' cliente.id %}" class="btn btn-primary edit-btn">
+                        <i class="bi bi-pencil-fill"></i> Editar
+                    </a>
                 </div>
             </div>
-
-            <div class="card-custom">
-                <img src="https://via.placeholder.com/100" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
-                <div class="card-body">
-                    <h5 class="card-title">ID: 12345</h5>
-                    <p class="card-text">Nombre: Juan Pérez</p>
-                    <p class="card-text">Otros detalles...</p>
-                    <button class="btn btn-primary edit-btn"><i class="bi bi-pencil-fill"></i> Editar</button>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
+
+<script>
+    function toggleInactivos() {
+        const mostrarInactivos = document.getElementById("mostrarInactivos").checked;
+        const inactivos = document.querySelectorAll(".inactivo");
+
+        inactivos.forEach(card => {
+            if (mostrarInactivos) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+
+    // Ocultar inactivos al cargar la página
+    document.addEventListener("DOMContentLoaded", () => {
+        toggleInactivos();
+    });
+</script>
 
 {% include 'index.html' %}
 {% endblock %}
