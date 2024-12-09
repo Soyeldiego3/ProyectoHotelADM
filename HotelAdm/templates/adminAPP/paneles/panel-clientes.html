@@ -4,15 +4,20 @@
 <!-- Navbar principal -->
 {% include 'adminAPP/panel-nav-bar.html' %}
 
-
 <!-- Contenido principal -->
 <title>Panel Clientes</title>
 <div class="container">
     <div class="extra-bar d-flex flex-column flex-md-row justify-content-between align-items-center py-2">
         <div class="d-flex justify-content-evenly w-100 w-md-25 mb-2 mb-md-0">
-            <a href="clientes" class="btn btn-custom-panel mx-1">Clientes</a>
-            <a href="hoteles" class="btn btn-custom-panel mx-1">Hoteles</a>
-            <a href="usuarios" class="btn btn-custom-panel mx-1">Usuarios</a>
+            {% if user.rol == 'superadmin'%}
+                <a href="organizaciones" class="btn btn-custom-panel mx-1">Org</a>
+                <a href="clientes" class="btn btn-custom-panel mx-1">Clientes</a>
+                <a href="hoteles" class="btn btn-custom-panel mx-1">Hoteles</a>
+                <a href="usuarios" class="btn btn-custom-panel mx-1">Usuarios</a>
+            {% else %}
+                <a href="hoteles" class="btn btn-custom-panel mx-1">Hoteles</a>
+                <a href="usuarios" class="btn btn-custom-panel mx-1">Usuarios</a>
+            {% endif %}
         </div>
 
         <div class="search-bar w-100 w-md-50">
@@ -31,6 +36,7 @@
         </div>
     </div>
 </div>
+
 <div class="container">
     <div class="container my-4">
         <div class="card-container">
@@ -45,13 +51,12 @@
             <!-- Tarjetas de usuario -->
             {% for cliente in clientes %}
             <div class="card-custom cliente-card {% if not cliente.activo %}inactivo{% endif %}">
-                <img src="{% static 'adminAPP/imagenes/icon.png'  %}" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
+                <img src="{% static 'adminAPP/imagenes/icon.png' %}" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
                 <div class="card-body">
-                    
                     <p class="card-text">Nombre: {{ cliente.nombre }}</p>
                     <p class="card-text">Correo: {{ cliente.correo }}</p>
                     <p class="card-text">Teléfono: {{ cliente.telefono }}</p>
-                    <p class="card-text">Estado: {{ cliente.activo|yesno:"Activo,Inactivo" }}</p>
+                    <p class="card-text">Estado: {{ cliente.activo |yesno:"Activo,Inactivo" }}</p>
                     <h6 class="card-title">ID: {{ cliente.id }}</h6>
                     <br>
                     <a href="{% url 'editar_cliente' cliente.id %}" class="btn btn-primary edit-btn">

@@ -4,16 +4,24 @@
 <!-- Navbar principal -->
 {% include 'adminAPP/panel-nav-bar.html' %}
 
+
 <!-- Contenido principal -->
 <title>Panel Usuarios</title>
 <div class="container">
     <div class="extra-bar d-flex flex-column flex-md-row justify-content-between align-items-center py-2">
         <div class="d-flex justify-content-evenly w-100 w-md-25 mb-2 mb-md-0">
-            <a href="clientes" class="btn btn-custom-panel mx-1">Clientes</a>
-            <a href="hoteles" class="btn btn-custom-panel mx-1">Hoteles</a>
-            <a href="usuarios" class="btn btn-custom-panel mx-1">Usuarios</a>
+            {% if user.rol == 'superadmin'%}
+                <a href="organizaciones" class="btn btn-custom-panel mx-1">Org</a>
+                <a href="clientes" class="btn btn-custom-panel mx-1">Clientes</a>
+                <a href="hoteles" class="btn btn-custom-panel mx-1">Hoteles</a>
+                <a href="usuarios" class="btn btn-custom-panel mx-1">Usuarios</a>
+            {% else %}
+                <a href="hoteles" class="btn btn-custom-panel mx-1">Hoteles</a>
+                <a href="usuarios" class="btn btn-custom-panel mx-1">Usuarios</a>
+            {% endif %}
         </div>
 
+        <!-- Buscador -->
         <div class="search-bar w-100 w-md-50">
             <form method="get" action="{% url 'usuarios' %}" class="input-group">
                 <input type="text" name="search" class="form-control search-input" placeholder="Buscar..." aria-label="Buscar" value="{{ query }}">
@@ -22,6 +30,7 @@
                 </button>
             </form>
         </div>
+
         <!-- Checkbox para mostrar inactivos -->
         <div class="form-check form-switch ms-3">
             <input class="form-check-input" type="checkbox" id="mostrarInactivos" onchange="toggleInactivos()">
@@ -29,8 +38,10 @@
         </div>
     </div>
 </div>
-
 <div class="container">
+    {% if not user.rol == 'superadmin' %}
+        <p class="text-white">Mostrando usuarios de la Organizacion: {{ user.organizacion }}</p>
+    {% endif %}
     <div class="container my-4">
         <div class="card-container">
             <!-- Tarjeta de Añadir -->
@@ -41,19 +52,19 @@
                 </a>
             </div>
 
-            <!-- Tarjetas de usuario -->
+            <!-- Tarjetas de cliente -->
             {% for usuario in usuarios %}
-            <div class="card-custom usuario-card {% if not usuario.activo %}inactivo{% endif %}">
+            <div class="card-custom cliente-card {% if not usuario.is_active %} inactivo {% endif %}"">
                 <img src="{% static 'adminAPP/imagenes/icon.png'  %}" alt="profile" class="card-img-top rounded-circle mx-auto d-block mt-3">
                 <div class="card-body">
-                    <p class="card-text">Nombre: {{ usuario.nombre }}</p>
-                    <p class="card-text">Correo: {{ usuario.correo }}</p>
-                    <p class="card-text">Teléfono: {{ usuario.telefono }}</p>
-                    <p class="card-text">Hotel: {{ usuario.hotel }}</p>
-                    <p class="card-text">
-                        Estado: {% if usuario.activo %}Activo{% else %}Inactivo{% endif %}
-                    </p>
                     
+                    <p class="card-text">Nombre: {{ usuario.username }}</p>
+                    <p class="card-text">Correo: {{ usuario.email }}</p>
+                    <p class="card-text">Teléfono: {{ usuario.telefono }}</p>
+                    <p class="card-text">Estado: {{ usuario.is_active|yesno:"Activo,Inactivo" }}</p>
+                    <p class="card-text">Hotel: {{ usuario.hotel}}</p>
+                    <h6 class="card-title">Rol: {{ usuario.rol }}</h6>
+                    <h6 class="card-title">ID: {{ usuario.id }}</h6>
                     <br>
                     <a href="{% url 'editar_usuario' usuario.id %}" class="btn btn-primary edit-btn">
                         <i class="bi bi-pencil-fill"></i> Editar
@@ -61,10 +72,10 @@
                 </div>
             </div>
             {% endfor %}
-
         </div>
     </div>
 </div>
+
 <script>
     function toggleInactivos() {
         const mostrarInactivos = document.getElementById("mostrarInactivos").checked;

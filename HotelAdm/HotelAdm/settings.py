@@ -84,6 +84,9 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '3306',
+        'OPTIONS': {
+            'sql_mode': 'STRICT_TRANS_TABLES',
+        }
     }
 }
 
@@ -105,6 +108,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'adminAPP.Usuario'
+
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/dashboard/"  # Redirigir al dashboard después del login
+LOGOUT_REDIRECT_URL = "/"  # Redirigir al login después del logout
 
 
 # Internationalization

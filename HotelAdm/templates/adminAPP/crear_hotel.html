@@ -24,8 +24,19 @@
                     <label for="id_correo" class="form-label">Correo:</label>
                     <input type="email" name="correo" class="form-control" style="background-color: #1f2235; color: #f8f9fa; border: 1px solid #f8f9fa;">
                 </div>
+                <div class="mb-3">
+                    <label for="id_organizacion" class="form-label">Organización:</label>
+                    <select name="organizacion" class="form-control" style="background-color: #1f2235; color: #f8f9fa; border: 1px solid #f8f9fa;">
+                        {% for organizacion in organizaciones %}
+                            <option value="{{ organizacion.id }}">{{ organizacion.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
                 <div class="d-grid">
                     <button type="submit" class="btn" style="background-color: #f78e69; color: #ffffff; border: none;">Crear</button>
+                </div>
+                <div class="d-grid mt-3">
+                    <a href="javascript:history.back()" class="btn btn-secondary" style="border: none;">Cancelar</a>
                 </div>
             </form>
         </div>

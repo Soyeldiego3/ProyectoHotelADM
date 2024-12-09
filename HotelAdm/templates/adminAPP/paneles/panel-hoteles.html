@@ -9,9 +9,15 @@
 <div class="container">
     <div class="extra-bar d-flex flex-column flex-md-row justify-content-between align-items-center py-2">
         <div class="d-flex justify-content-evenly w-100 w-md-25 mb-2 mb-md-0">
-            <a href="clientes" class="btn btn-custom-panel mx-1">Clientes</a>
-            <a href="hoteles" class="btn btn-custom-panel mx-1">Hoteles</a>
-            <a href="usuarios" class="btn btn-custom-panel mx-1">Usuarios</a>
+            {% if user.rol == 'superadmin'%}
+                <a href="organizaciones" class="btn btn-custom-panel mx-1">Org</a>
+                <a href="clientes" class="btn btn-custom-panel mx-1">Clientes</a>
+                <a href="hoteles" class="btn btn-custom-panel mx-1">Hoteles</a>
+                <a href="usuarios" class="btn btn-custom-panel mx-1">Usuarios</a>
+            {% else %}
+                <a href="hoteles" class="btn btn-custom-panel mx-1">Hoteles</a>
+                <a href="usuarios" class="btn btn-custom-panel mx-1">Usuarios</a>
+            {% endif %}
         </div>
 
         <div class="search-bar w-100 w-md-50">
@@ -26,6 +32,9 @@
     </div>
 </div>
 <div class="container">
+    {% if not user.rol == 'superadmin' %}
+        <p class="text-white">Mostrando Hoteles de la Organizacion: {{ user.organizacion }}</p>
+    {% endif %}
     <div class="container my-4">
         <div class="card-container">
             <!-- Tarjeta de Añadir -->

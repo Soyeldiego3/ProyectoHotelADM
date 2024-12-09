@@ -12,13 +12,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
+                {% if user.username %}
+                <li class="nav-item">
+                    <a href="{% url 'logout' %}" class="nav-link text-light-blue">Cerrar sesión</a>
+                </li>
+                {% endif %}
                 <li class="nav-item"><a class="nav-link text-light-blue" href="/">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link text-light-blue" href="servicios">Servicios</a></li>
                 <li class="nav-item"><a class="nav-link text-light-blue" href="contacto">Contacto</a></li>
                 <!-- Contenedor para botón y nombre de usuario -->
                 <div class="user-login d-flex align-items-center">
-                    <li class="nav-item"><a class="nav-link btn btn-orange-login" href="login"><i class="fa-solid fa-user"></i></a></li>
-                    <li class="nav-item nav-link text-light-blue">Usuario</li>
+                    <li class="nav-item"><a class="nav-link btn btn-orange-login" href="dashboard"><i class="fa-solid fa-user"></i></a></li>
+                    {% if user.username %}
+                        <li class="nav-item nav-link text-light-blue">{{user.username }}</li>
+                    {% else %}
+                        <li class="nav-item nav-link text-light-blue">Invitado</li>
+                    {% endif %}
                 </div>
             </ul>
         </div>

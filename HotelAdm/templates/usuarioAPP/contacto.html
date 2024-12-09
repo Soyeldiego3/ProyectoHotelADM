@@ -44,6 +44,11 @@
         }
     }
 
+    .ajuste {
+        display: flex;
+        justify-content: center;
+    }
+
     .form-container {
         background-color: #424769;
         padding: 20px;
@@ -51,6 +56,7 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         margin-top: 20px;
         margin-bottom: 20px;
+        width: 500px;
     }
 
     .form-group {
@@ -92,24 +98,26 @@
 </style>
 <body>
     <div class="contenido">
-        <div class="form-container">
-            <h2 class="text-white">Formulario de Contacto</h2>
-            <form>
-                <div class="form-group">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" id="nombre" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="correo" class="form-label">Correo</label>
-                    <input type="email" id="correo" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="consulta" class="form-label">Consulta</label>
-                    <textarea id="consulta" class="form-control" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Enviar</button>
-            </form>
-        </div>
+        <div class="ajuste">
+            <div class="form-container">
+                <h2 class="text-white">Formulario de Contacto</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" id="nombre" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo" class="form-label">Correo</label>
+                        <input type="email" id="correo" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="consulta" class="form-label">Consulta</label>
+                        <textarea id="consulta" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar</button>
+                </form>
+            </div>
+        </div>  
     </div>
 </body>
 

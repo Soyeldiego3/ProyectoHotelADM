@@ -8,74 +8,22 @@
         <div class="card-body" style="color: #f8f9fa;">
             <form method="post">
                 {% csrf_token %}
-                
-                <!-- Username -->
-                <div class="mb-3">
-                    <label for="id_username" class="form-label">Username:</label>
-                    <input type="text" name="username" class="form-control {% if form.username.errors %}is-invalid{% endif %}" id="id_username" value="{{ form.username.value }}">
-                    {% for error in form.username.errors %}
-                        <div class="invalid-feedback">{{ error }}</div>
-                    {% endfor %}
-                </div>
-
-                <!-- Nombre -->
-                <div class="mb-3">
-                    <label for="id_nombre" class="form-label">Nombre:</label>
-                    <input type="text" name="nombre" class="form-control {% if form.nombre.errors %}is-invalid{% endif %}" id="id_nombre" value="{{ form.nombre.value }}">
-                    {% for error in form.nombre.errors %}
-                        <div class="invalid-feedback">{{ error }}</div>
-                    {% endfor %}
-                </div>
-
-                <!-- Correo -->
-                <div class="mb-3">
-                    <label for="id_correo" class="form-label">Correo:</label>
-                    <input type="email" name="correo" class="form-control {% if form.correo.errors %}is-invalid{% endif %}" id="id_correo" value="{{ form.correo.value }}">
-                    {% for error in form.correo.errors %}
-                        <div class="invalid-feedback">{{ error }}</div>
-                    {% endfor %}
-                </div>
-
-                <!-- Teléfono -->
-                <div class="mb-3">
-                    <label for="id_telefono" class="form-label">Teléfono:</label>
-                    <input type="text" name="telefono" class="form-control {% if form.telefono.errors %}is-invalid{% endif %}" id="id_telefono" value="{{ form.telefono.value }}">
-                    {% for error in form.telefono.errors %}
-                        <div class="invalid-feedback">{{ error }}</div>
-                    {% endfor %}
-                </div>
-
-                <!-- Dirección -->
-                <div class="mb-3">
-                    <label for="id_direccion" class="form-label">Dirección:</label>
-                    <input type="text" name="direccion" class="form-control {% if form.direccion.errors %}is-invalid{% endif %}" id="id_direccion" value="{{ form.direccion.value }}">
-                    {% for error in form.direccion.errors %}
-                        <div class="invalid-feedback">{{ error }}</div>
-                    {% endfor %}
-                </div>
-
-                <!-- Hotel -->
-                <div class="mb-3">
-                    <label for="id_hotel" class="form-label">Hotel:</label>
-                    <select name="hotel" class="form-control {% if form.hotel.errors %}is-invalid{% endif %}">
-                        <option value="">Seleccione un hotel</option>
-                        {% for hotel in form.hotel.field.queryset %}
-                            <option value="{{ hotel.id }}" {% if hotel.id == form.hotel.value %}selected{% endif %}>{{ hotel.nombre }}</option>
-                        {% endfor %}
-                    </select>
-                    {% for error in form.hotel.errors %}
-                        <div class="invalid-feedback">{{ error }}</div>
-                    {% endfor %}
-                </div>
-
-                <!-- Activo -->
-                <div class="mb-3">
-                    <label for="id_is_active" class="form-label">Activo:</label>
-                    <input type="checkbox" name="is_active" class="form-check-input" id="id_is_active" {% if form.is_active.value %}checked{% endif %}>
-                </div>
-
+                {% for field in form %}
+                    <div class="mb-3">
+                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                                <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                {% endfor %}
                 <div class="d-grid">
                     <button type="submit" class="btn" style="background-color: #f78e69; color: #ffffff; border: none;">Crear</button>
+                </div>
+                <div class="d-grid mt-3">
+                    <a href="javascript:history.back()" class="btn btn-secondary" style="border: none;">Cancelar</a>
                 </div>
             </form>
         </div>

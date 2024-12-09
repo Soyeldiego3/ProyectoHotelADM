@@ -1,71 +1,22 @@
 {% include 'adminAPP/panel-nav-bar.html' %}
 {% block content %}
 <div class="container mt-5">
-    <div class="card mx-auto position-relative" style="max-width: 600px; background-color: #2a2d43; border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-        <!-- Botón de eliminar en la esquina superior derecha -->
-        <form method="post" style="position: absolute; top: 10px; right: 10px;">
-            {% csrf_token %}
-            <button type="submit" name="eliminar" class="btn btn-danger btn-sm" onclick="return confirmarDeshabilitar();" title="Eliminar Usuario">
-                &times;
-            </button>
-        </form>
+    <div class="card mx-auto" style="max-width: 600px; background-color: #2a2d43; border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
         <div class="card-header text-center" style="background-color: #1f2235; color: #f8f9fa;">
-            <h4>Editar Usuario: {{ usuario.nombre }}</h4>
+            <h4>Editar Usuario: {{ form.instance.username }}</h4>
         </div>
         <div class="card-body" style="color: #f8f9fa;">
             <form method="post">
                 {% csrf_token %}
-                <div class="mb-3">
-                    <label for="id_nombre" class="form-label">Nombre:</label>
-                    <input type="text" id="id_nombre" name="nombre" value="{{ usuario.nombre }}" class="form-control" style="background-color: #1f2235; color: #f8f9fa; border: 1px solid #f8f9fa;">
-                </div>
-                <div class="mb-3">
-                    <label for="id_correo" class="form-label">Correo:</label>
-                    <input type="email" id="id_correo" name="correo" value="{{ usuario.correo }}" class="form-control" style="background-color: #1f2235; color: #f8f9fa; border: 1px solid #f8f9fa;">
-                </div>
-                <div class="mb-3">
-                    <label for="id_telefono" class="form-label">Teléfono:</label>
-                    <input type="text" id="id_telefono" name="telefono" value="{{ usuario.telefono }}" class="form-control" style="background-color: #1f2235; color: #f8f9fa; border: 1px solid #f8f9fa;">
-                </div>
-                <div class="mb-3">
-                    <label for="id_hotel" class="form-label">Hotel:</label>
-                    <input type="text" id="id_hotel" name="hotel" value="{{ usuario.hotel }}" class="form-control" style="background-color: #1f2235; color: #f8f9fa; border: 1px solid #f8f9fa;">
-                </div>
-
-                <!-- Botón para activar/deshabilitar -->
-                <div class="mb-3">
-                    <label for="id_is_active" class="form-label">Estado:</label>
-                    <select id="id_is_active" name="is_active" class="form-control" style="background-color: #1f2235; color: #f8f9fa; border: 1px solid #f8f9fa;">
-                        <option value="True" {% if usuario.is_active %}selected{% endif %}>Activo</option>
-                        <option value="False" {% if not usuario.is_active %}selected{% endif %}>Inactivo</option>
-                    </select>
-                </div>
-
+                {{ form.as_p }}
                 <div class="d-grid gap-2">
-                    <button type="submit" name="guardar" class="btn" style="background-color: #f78e69; color: #ffffff; border: none;">
+                    <button type="submit" class="btn" style="background-color: #f78e69; color: #ffffff; border: none;">
                         Guardar Cambios
                     </button>
                 </div>
             </form>
-
-            {% if error %}
-                <div class="alert alert-danger mt-3">
-                    <strong>Error:</strong> {{ error }}
-                </div>
-            {% endif %}
         </div>
     </div>
 </div>
-
-<script>
-    // Confirmación de deshabilitar usuario
-    function confirmarDeshabilitar() {
-        let confirmacion1 = confirm("¿Estás seguro de que deseas deshabilitar este usuario?");
-        if (confirmacion1) {
-            return confirm("¿Estás completamente seguro? Esta acción lo deshabilitará.");
-        }
-        return false;
-    }
-</script>
 {% endblock %}
 {% include 'index.html' %}
